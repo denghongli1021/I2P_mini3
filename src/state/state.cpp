@@ -50,7 +50,7 @@ int State::evaluate(){
         value -= 90;
       }
       else if (this->board.board[!player][i][j] == '6') {
-        value -= 1000;
+        value -= 500;
       }
     }
   }
