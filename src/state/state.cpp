@@ -15,40 +15,40 @@ int State::evaluate(){
   int value = 0;
   for (int i = 0 ;i <=BOARD_W-1 ;i++) {
     for (int j =0 ;j<=BOARD_H-1;j++) {
-      if (this->board.board[player][i][j] == '1') {
+      if (this->board.board[0][i][j] == '1') {
         value += 10;
       }
-      else if (this->board.board[player][i][j] == '2') {
+      else if (this->board.board[0][i][j] == '2') {
         value += 50;
       }
-      else if (this->board.board[player][i][j] == '3') {
+      else if (this->board.board[0][i][j] == '3') {
         value += 30;
       }
-      else if (this->board.board[player][i][j] == '4') {
+      else if (this->board.board[0][i][j] == '4') {
         value += 30;
       }
-      else if (this->board.board[player][i][j] == '5') {
+      else if (this->board.board[0][i][j] == '5') {
         value += 90;
       }
-      else if (this->board.board[player][i][j] == '6') {
+      else if (this->board.board[0][i][j] == '6') {
         value += 500;
       }
-      if (this->board.board[!player][i][j] == '1') {
+      if (this->board.board[1][i][j] == '1') {
         value -= 10;
       }
-      else if (this->board.board[!player][i][j] == '2') {
+      else if (this->board.board[1][i][j] == '2') {
         value -= 50;
       }
-      else if (this->board.board[!player][i][j] == '3') {
+      else if (this->board.board[1][i][j] == '3') {
         value -= 30;
       }
-      else if (this->board.board[!player][i][j] == '4') {
+      else if (this->board.board[1][i][j] == '4') {
         value -= 30;
       }
-      else if (this->board.board[!player][i][j] == '5') {
+      else if (this->board.board[1][i][j] == '5') {
         value -= 90;
       }
-      else if (this->board.board[!player][i][j] == '6') {
+      else if (this->board.board[1][i][j] == '6') {
         value -= 500;
       }
     }

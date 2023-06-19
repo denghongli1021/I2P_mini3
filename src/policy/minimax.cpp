@@ -1,5 +1,5 @@
 #include <cstdlib>
-
+#include<climits>
 #include "../state/state.hpp"
 #include "./minimax.hpp"
 
