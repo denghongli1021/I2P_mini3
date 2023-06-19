@@ -10,7 +10,7 @@
  * 
  * @return int 
  */
-int valueboard [] = {0,1,5,10,20,50,1000};
+int valueboard [] = {0,1,5,10,20,50,10000};
  
 int State::evaluate(){
   // [TODO] design your own evaluation function
