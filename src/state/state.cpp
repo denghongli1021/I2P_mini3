@@ -10,92 +10,53 @@
  * 
  * @return int 
  */
+int valueboard [] = {0,1,5,10,20,50,1000};
+ 
 int State::evaluate(){
   // [TODO] design your own evaluation function
   std::cout <<" player  : "<< player << '\n';
   int value = 0;
-  if (!player) {
-    for (int i = 0 ;i <=BOARD_W-1 ;i++) {
-      for (int j =0 ;j<=BOARD_H-1;j++) {
-        if (this->board.board[0][i][j] == '1') {
-          value += 10;
-        }
-        else if (this->board.board[0][i][j] == '2') {
-          value += 50;
-        }
-        else if (this->board.board[0][i][j] == '3') {
-          value += 30;
-        }
-        else if (this->board.board[0][i][j] == '4') {
-          value += 30;
-        }
-        else if (this->board.board[0][i][j] == '5') {
-          value += 90;
-        }
-        else if (this->board.board[0][i][j] == '6') {
-          value += 500;
-        }
-        if (this->board.board[1][i][j] == '1') {
-          value -= 10;
-        }
-        else if (this->board.board[1][i][j] == '2') {
-          value -= 50;
-        }
-        else if (this->board.board[1][i][j] == '3') {
-          value -= 30;
-        }
-        else if (this->board.board[1][i][j] == '4') {
-          value -= 30;
-        }
-        else if (this->board.board[1][i][j] == '5') {
-          value -= 90;
-        }
-        else if (this->board.board[1][i][j] == '6') {
-          value -= 500;
-        }
-      }
-    }
-  }
-  else {
-    for (int i = 0 ;i <=BOARD_W-1 ;i++) {
-      for (int j =0 ;j<=BOARD_H-1;j++) {
-        if (this->board.board[0][i][j] == '1') {
-          value -= 10;
-        }
-        else if (this->board.board[0][i][j] == '2') {
-          value -= 50;
-        }
-        else if (this->board.board[0][i][j] == '3') {
-          value -= 30;
-        }
-        else if (this->board.board[0][i][j] == '4') {
-          value -= 30;
-        }
-        else if (this->board.board[0][i][j] == '5') {
-          value -= 90;
-        }
-        else if (this->board.board[0][i][j] == '6') {
-          value -= 500;
-        }
-        if (this->board.board[1][i][j] == '1') {
-          value += 10;
-        }
-        else if (this->board.board[1][i][j] == '2') {
-          value += 50;
-        }
-        else if (this->board.board[1][i][j] == '3') {
-          value += 30;
-        }
-        else if (this->board.board[1][i][j] == '4') {
-          value += 30;
-        }
-        else if (this->board.board[1][i][j] == '5') {
-          value += 90;
-        }
-        else if (this->board.board[1][i][j] == '6') {
-          value += 500;
-        }
-      }
+  
+  for (int i = 0 ;i < 6 ;i++) {
+    for (int j =0 ;j < 5;j++) {
+        value += valueboard[this->board.board[!(this->player)][i][j]];
+        value -= valueboard[this->board.board[this->player][i][j]];
+        // if (this->board.board[!this->player][i][j] == '1') {
+        //   value += 1;
+        // }
+        // else if (this->board.board[!this->player][i][j] == '2') {
+        //   value += 3;
+        // }
+        // else if (this->board.board[!this->player][i][j] == '3') {
+        //   value += 5;
+        // }
+        // else if (this->board.board[!this->player][i][j] == '4') {
+        //   value += 5;
+        // }
+        // else if (this->board.board[!this->player][i][j] == '5') {
+        //   value += 9;
+        // }
+        // else if (this->board.board[!this->player][i][j] == '6') {
+        //   value += 100;
+        // }
+        // if (this->board.board[this->player][i][j] == '1') {
+        //   value -= 1;
+        // }
+        // else if (this->board.board[this->player][i][j] == '2') {
+        //   value -= 3;
+        // }
+        // else if (this->board.board[this->player][i][j] == '3') {
+        //   value -= 5;
+        // }
+        // else if (this->board.board[this->player][i][j] == '4') {
+        //   value -= 5;
+        // }
+        // else if (this->board.board[this->player][i][j] == '5') {
+        //   value -= 9;
+        // }
+        // else if (this->board.board[this->player][i][j] == '6') {
+        //   value -= 100;
+        // }
     }
   }
   return value;
