@@ -5,7 +5,6 @@
 #include "./state.hpp"
 #include "../config.hpp"
 
-
 /**
  * @brief evaluate the state
  * 
