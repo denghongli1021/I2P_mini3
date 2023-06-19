@@ -42,7 +42,7 @@ int AlpBe::alphabeta(State* root ,int depth , int maximizeplayer,int alpha,int b
     else {
         eval = INT_MAX;
         for (auto state : root->legal_actions) {
-            eval = min(eval,alphabeta(root->next_state(state) , depth-1 ,1,0,0));
+            eval = min(eval,alphabeta(root->next_state(state) , depth-1 ,1,alpha,beta));
             beta = min(beta,eval);
             if (beta <= alpha) {
                 break;
