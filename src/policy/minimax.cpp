@@ -6,7 +6,6 @@
 #include "../state/state.hpp"
 #include "./minimax.hpp"
 
-
 /**
  * @brief Randomly get a legal action
  * 
