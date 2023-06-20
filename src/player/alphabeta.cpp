@@ -32,7 +32,6 @@ void read_board(std::ifstream& fin) {
   root->get_legal_actions();
 }
 
-
 /**
  * @brief randomly choose a move and then write it into output file
  * 
@@ -40,18 +39,16 @@ void read_board(std::ifstream& fin) {
  */
 void write_valid_spot(std::ofstream& fout) {
   // Keep updating the output until getting killed.
-  while(true) {
+  for (int i = 1; i<=7;i++) {
     // Choose a random spot.
-    auto move = AlpBe::get_move(root, 4);
+    auto move = AlpBe::get_move(root, i);
     fout << move.first.first << " " << move.first.second << " "\
          << move.second.first << " " << move.second.second << std::endl;
     
     // Remember to flush the output to ensure the last action is written to file.
     fout.flush();
-    break;
   }
 }
-
 
 /**
  * @brief Main function for player

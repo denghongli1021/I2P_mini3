@@ -11,42 +11,7 @@
  * @return int 
  */
 int valueboard [] = {0,1,5,10,20,50,10000};
-int value1[6][5] = {
-  70,70,70,70,70,70,
-  6,6,6,6,6,6,
-  1,1,1,1,1,1,
-  0,0,0,0,0,0,
-  0,0,0,0,0,0
-};
-int value2[6][5] = {
-  0,0,0,0,0,0,
-  0,0,0,0,0,0,
-  0,0,0,0,0,0,
-  0,0,0,0,0,0,
-  0,0,0,0,0,0
-};
-int value3[6][5] = {
-  0,0,0,0,0,0,
-  0,0,0,0,0,0,
-  0,0,0,0,0,0,
-  0,0,0,0,0,0,
-  0,0,0,0,0,0
-};
-int value4[6][5] = {
-  0,0,0,0,0,0,
-  0,0,0,0,0,0,
-  0,0,0,0,0,0,
-  0,0,0,0,0,0,
-  0,0,0,0,0,0
-};
-int value5[6][5] = {
-  0,0,0,0,0,0,
-  0,0,0,0,0,0,
-  10,10,10,10,10,10,
-  0,0,0,0,0,0,
-  0,0,0,0,0,0
-};
- 
+
 int State::evaluate (int self){
   // [TODO] design your own evaluation function
   // std::cout <<" player  : "<< player << '\n';
@@ -54,20 +19,19 @@ int State::evaluate (int self){
   
   for (int i = 0 ;i < 6 ;i++) {
     for (int j =0 ;j < 5;j++) {
-      value -= valueboard[this->board.board[(self)^1][i][j]];
+      value -= valueboard[this->board.board[(self) ^ 1][i][j]];
       value += valueboard[this->board.board[(self)][i][j]];
-      if (this->board.board[(self)^1][i][j] == 1) {
-        value -= value1[i][j];
-      }
-      if (this->board.board[(self)][i][j] == 1) {
-        value += value1[i][j];
-      }
+      // if (this->board.board[(self)^1][i][j] == 1) {
+      //   value -= value1[i][j];
+      // }
+      // if (this->board.board[(self)][i][j] == 1) {
+      //   value += value1[i][j];
+      // }
     }
   }
   return value;
   //return 0;
 }
-
 
 /**
  * @brief return next state after the move

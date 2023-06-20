@@ -17,7 +17,7 @@
 // int self1 = 0;
 // int setyet1 = 0;
 
-int Minimax::minimax (State* root ,int depth , int self1) {
+int Minimax::minimax (State* root ,int depth ,int self1) {
     if (depth == 0) {
         return root->evaluate(self1);
     }
@@ -59,7 +59,7 @@ Move Minimax::get_move(State *state, int depth){
     auto next_moves = state->legal_actions;
     Move next_move;
     for (auto next : next_moves) {
-        int tmp = minimax(state->next_state(next), depth, state->player);
+        int tmp = minimax(state->next_state(next), depth-1, state->player);
         if (tmp > maxvalue) {
             maxvalue = tmp;
             next_move = next;

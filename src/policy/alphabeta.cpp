@@ -12,8 +12,8 @@
  * @param depth You may need this for other policy
  * @return Move 
  */
-// int self2 = 0;
-// int setyet2 = 0;
+int self2 = 0;
+int setyet2 = 0;
 
 int max(int a,int b) {
     return a>b?a:b;
@@ -22,7 +22,7 @@ int min(int a,int b) {
     return a<b?a:b;
 }
 
-int AlpBe::alphabeta(State* root ,int depth , int self2,int alpha,int beta) {
+int AlpBe::alphabeta(State* root ,int depth , int self2 ,int alpha,int beta) {
     //std::cout << "alphabeta depth : " << depth << "\n";
     if (depth == 0) {
         return root->evaluate(self2);
@@ -58,20 +58,18 @@ int AlpBe::alphabeta(State* root ,int depth , int self2,int alpha,int beta) {
 }
  
 Move AlpBe::get_move(State *state, int depth){
-    // if (!setyet2) {
-    //     setyet2 = 1;
-    //     self2 = state->player;
-    // }
+    if (!setyet2) {
+        setyet2 = 1;
+        self2 = state->player;
+    }
     if(!state->legal_actions.size())
         state->get_legal_actions();
     int maxvalue = -2e9;
-    depth += 1;
-    depth -= 1;
     auto next_moves = state->legal_actions;
     Move next_move;
     
     for (auto next : next_moves) {
-        int tmp = alphabeta(state->next_state(next), 4 , state->player ,INT_MIN , INT_MAX);
+        int tmp = alphabeta(state->next_state(next), depth-1 , self2 ,INT_MIN , INT_MAX);
         // 這裡應該還要改
         if (tmp > maxvalue) {
             maxvalue = tmp;
