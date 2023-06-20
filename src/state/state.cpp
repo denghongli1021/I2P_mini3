@@ -47,21 +47,21 @@ int value5[6][5] = {
   0,0,0,0,0,0
 };
  
-int State::evaluate(){
+int State::evaluate (int self){
   // [TODO] design your own evaluation function
   // std::cout <<" player  : "<< player << '\n';
   int value = 0;
   
   for (int i = 0 ;i < 6 ;i++) {
     for (int j =0 ;j < 5;j++) {
-        value += valueboard[this->board.board[!(this->player)][i][j]];
-        value -= valueboard[this->board.board[(this->player)][i][j]];
-        if (this->board.board[!(this->player)][i][j] == 1) {
-          value += value1[i][j];
-        }
-        if (this->board.board[(this->player)][i][j] == 1) {
-          value -= value1[i][j];
-        }
+      value -= valueboard[this->board.board[(self)^1][i][j]];
+      value += valueboard[this->board.board[(self)][i][j]];
+      if (this->board.board[(self)^1][i][j] == 1) {
+        value -= value1[i][j];
+      }
+      if (this->board.board[(self)][i][j] == 1) {
+        value += value1[i][j];
+      }
     }
   }
   return value;
