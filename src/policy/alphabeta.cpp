@@ -1,5 +1,6 @@
 #include <cstdlib>
 #include <climits>
+#include <iostream>
 #include "../state/state.hpp"
 #include "./alphabeta.hpp"
 
@@ -19,6 +20,7 @@ int min(int a,int b) {
 }
 
 int AlpBe::alphabeta(State* root ,int depth , int maximizeplayer,int alpha,int beta) {
+    //std::cout << "alphabeta depth : " << depth << "\n";
     if (depth == 0) {
         return root->evaluate();
     }
@@ -60,8 +62,9 @@ Move AlpBe::get_move(State *state, int depth){
     depth -= 1;
     auto next_moves = state->legal_actions;
     Move next_move;
+    
     for (auto next : next_moves) {
-        int tmp = alphabeta(state->next_state(next), 4, 0,INT_MIN,INT_MAX);
+        int tmp = alphabeta(state->next_state(next), 4 , 0,INT_MIN,INT_MAX);
         // 這裡應該還要改
         if (tmp > maxvalue) {
             maxvalue = tmp;

@@ -54,50 +54,14 @@ int State::evaluate(){
   
   for (int i = 0 ;i < 6 ;i++) {
     for (int j =0 ;j < 5;j++) {
-        value += valueboard[this->board.board[!(this->player)][i][j]];
-        value -= valueboard[this->board.board[this->player][i][j]];
-        if (this->board.board[!(this->player)][i][j] == '1') {
+        value += valueboard[this->board.board[(this->player)][i][j]];
+        value -= valueboard[this->board.board[!(this->player)][i][j]];
+        if (this->board.board[(this->player)][i][j] == 1) {
           value += value1[i][j];
         }
-        if (this->board.board[(this->player)][i][j] == '1') {
+        if (this->board.board[!(this->player)][i][j] == 1) {
           value -= value1[i][j];
         }
-        // if (this->board.board[!this->player][i][j] == '1') {
-        //   value += 1;
-        // }
-        // else if (this->board.board[!this->player][i][j] == '2') {
-        //   value += 3;
-        // }
-        // else if (this->board.board[!this->player][i][j] == '3') {
-        //   value += 5;
-        // }
-        // else if (this->board.board[!this->player][i][j] == '4') {
-        //   value += 5;
-        // }
-        // else if (this->board.board[!this->player][i][j] == '5') {
-        //   value += 9;
-        // }
-        // else if (this->board.board[!this->player][i][j] == '6') {
-        //   value += 100;
-        // }
-        // if (this->board.board[this->player][i][j] == '1') {
-        //   value -= 1;
-        // }
-        // else if (this->board.board[this->player][i][j] == '2') {
-        //   value -= 3;
-        // }
-        // else if (this->board.board[this->player][i][j] == '3') {
-        //   value -= 5;
-        // }
-        // else if (this->board.board[this->player][i][j] == '4') {
-        //   value -= 5;
-        // }
-        // else if (this->board.board[this->player][i][j] == '5') {
-        //   value -= 9;
-        // }
-        // else if (this->board.board[this->player][i][j] == '6') {
-        //   value -= 100;
-        // }
     }
   }
   return value;

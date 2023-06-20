@@ -6,7 +6,8 @@
 #include "../state/state.hpp"
 #include "./minimax.hpp"
 
-
+int self = 0;
+int setyet = 0;
 /**
  * @brief Randomly get a legal action
  * 
@@ -15,7 +16,7 @@
  * @return Move 
  */
 
-int Minimax::minimax(State* root ,int depth , int maximizeplayer) {
+int Minimax::minimax (State* root ,int depth , int maximizeplayer) {
     if (depth == 0) {
         return root->evaluate();
     }
@@ -48,14 +49,13 @@ int Minimax::minimax(State* root ,int depth , int maximizeplayer) {
 }
 
 Move Minimax::get_move(State *state, int depth){
+    //self = state->player;
     state->get_legal_actions();
-    depth += 1;
-    depth -= 1;
     int maxvalue = -2e9;
     auto next_moves = state->legal_actions;
     Move next_move;
     for (auto next : next_moves) {
-        int tmp = minimax(state->next_state(next), 4, 0);
+        int tmp = minimax(state->next_state(next), depth, state->player);
         if (tmp > maxvalue) {
             maxvalue = tmp;
             next_move = next;
